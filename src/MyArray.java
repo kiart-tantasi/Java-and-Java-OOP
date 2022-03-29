@@ -16,4 +16,12 @@ public class MyArray {
     public void setNumArray(int[] numArray) {
         this.numArray = numArray;
     }
+
+    public static void main(String[] args) {
+        String[] strArr = {"a", "b", "c"};
+        double idxOneDouble = 1.0;
+        int idxOneInt = 1;
+//        System.out.println(strArr[idxOneDouble]); // * throw Error
+        System.out.println(strArr[idxOneInt]);
+    }
 }

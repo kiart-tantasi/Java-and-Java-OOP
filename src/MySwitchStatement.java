@@ -18,4 +18,10 @@ public class MySwitchStatement {
         }
     }
 
+    public static void main(String[] args) {
+        // Switch
+        MySwitchStatement switcher = new MySwitchStatement();
+        switcher.getSwitch(1);
+    }
+
 }

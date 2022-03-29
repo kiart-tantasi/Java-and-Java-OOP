@@ -1,6 +1,17 @@
 package oop;
 
-public class MyImplementation implements MyInterface {
+public class MyImplementation {
+
+    public static void main(String[] args) {
+        // Implementation of Interface
+        DummyImplementation myDemo = new DummyImplementation();
+        myDemo.setData("My name is 'Data' !");
+        System.out.println(myDemo.getData() + "\n");
+    }
+
+}
+
+class DummyImplementation implements MyInterface {
 
     public String data;
 
