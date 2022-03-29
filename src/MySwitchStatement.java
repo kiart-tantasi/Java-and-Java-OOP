@@ -1,4 +1,4 @@
-public class Switch {
+public class MySwitchStatement {
 
     public void getSwitch(int num) {
         switch(num) {

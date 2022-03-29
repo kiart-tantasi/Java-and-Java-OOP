@@ -1,11 +1,6 @@
-import oop.MySubClass;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
-        int[] numArray = Array.getNumArray();
+        int[] numArray = MyArray.getNumArray();
 
         // find max of array
 //        int max = numArray[0];

@@ -1,9 +1,10 @@
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class Date {
+public class MyDate {
 
     public static void main(String[] args) {
         System.out.println("LocalDate: " + LocalDate.now());
@@ -13,7 +14,7 @@ public class Date {
 
         try {
             LocalDate date = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
             String formattedDate = date.format(formatter);
             System.out.println("formattedDate: " + formattedDate);
 
@@ -21,8 +22,10 @@ public class Date {
             DateTimeFormatter secondFormatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
             String formattedDateTime = dateTime.format(secondFormatter);
             System.out.println("formattedDateTime: " + formattedDateTime);
-        } catch (Exception e) {
-            System.out.println("Format Invalid");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        } catch (DateTimeException e) {
+            System.out.println(e);
         }
         // format
         // yyyy-MM-dd
