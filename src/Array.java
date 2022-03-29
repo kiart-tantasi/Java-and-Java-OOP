@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public class Array {
 
     public static int[] numArray = {1,2,3,4,99,5};
 
     public  static int[][] multiNumArray =
-    {
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}
-    };
+            {
+                    {1,2,3},
+                    {4,5,6},
+                    {7,8,9}
+            };
 
     public static int[] getNumArray() {
         return numArray;
