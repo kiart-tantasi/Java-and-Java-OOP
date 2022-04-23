@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MyCompletableFuture {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // 1. supplyAsync
 //        CompletableFuture<String> cf = CompletableFuture.supplyAsync(() -> {
@@ -24,12 +24,8 @@ public class MyCompletableFuture {
 //            }
 //            return "SUCCESS";
 //        });
-//        System.out.println("supplyAsync: " + cf.join()); // .join()
-//        try {
-//            System.out.println("supplyAsync(.get()) " + cf.get());
-//        } catch (InterruptedException | ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//        System.out.println("supplyAsync: " + cf.get());
+
 
 
 
@@ -44,12 +40,8 @@ public class MyCompletableFuture {
 //            }
 //        });
 //         // no point of using .join() or .get() with runAsync because it will return null
-//        System.out.println("runAsync: " + cfVoid.join());
-//        try {
-//            System.out.println("runAsync(.get()): " + cfVoid.get());
-//        } catch (InterruptedException | ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//        System.out.println("runAsync: " + cfVoid.get());
+
 
 
 
@@ -81,19 +73,16 @@ public class MyCompletableFuture {
 //                    } catch (InterruptedException e) {
 //                        e.printStackTrace();
 //                    }
-//                    System.out.println("RESULT: " + result);
+//                    System.out.println("FINAL RESULT: " + result);
 //                    System.out.println("THROWABLE: " + throwable);
 //                });
-//        try {
-//            integerCf.get();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//        integerCf.get();
+
 
 
         // 4.1 combine CompletableFutures together (allOf)
+
+//        // cf1
 //        CompletableFuture<Integer> firstValue = CompletableFuture.supplyAsync(() -> {
 //            try {
 //                Thread.sleep(3000);
@@ -102,6 +91,8 @@ public class MyCompletableFuture {
 //            }
 //            return 15;
 //        });
+//
+//        // cf2
 //        CompletableFuture<Integer> secondValue = CompletableFuture.supplyAsync(() -> {
 //            try {
 //                Thread.sleep(3000);
@@ -111,9 +102,10 @@ public class MyCompletableFuture {
 //            return 5;
 //        });
 //
-//        CompletableFuture<Void> combinedCompletableFutures = CompletableFuture.allOf(firstValue,secondValue);
+//        // allOf
+//        CompletableFuture<Void> allCfs = CompletableFuture.allOf(firstValue,secondValue);
 //
-//        combinedCompletableFutures.whenComplete((result, throwable) -> {
+//        allCfs.whenComplete((result, throwable) -> {
 //            try {
 //                System.out.println("First Value: " + firstValue.get());
 //                System.out.println("Second Value: " + secondValue.get());
@@ -123,65 +115,58 @@ public class MyCompletableFuture {
 //            if (throwable == null) System.out.println("SUCCESS!");
 //            else System.out.println("FAILED!");
 //        });
-//        try {
-//            combinedCompletableFutures.get();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//
+//        allCfs.get();
+
 
 
         // 4.2.1 Multiple Futures in Parallel (allOf)
+
+//        // cf1
 //        CompletableFuture<String> future1
 //                = CompletableFuture.supplyAsync(() -> "Hello");
+//
+//        // cf2
 //        CompletableFuture<String> future2
 //                = CompletableFuture.supplyAsync(() -> {
 //            try {
-//                Thread.sleep(2000);
+//                Thread.sleep(3000);
 //            } catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }
 //            return "Beautiful";
 //        });
+//
+//        // cf3
 //        CompletableFuture<String> future3
 //                = CompletableFuture.supplyAsync(() -> "World");
 //
-//        CompletableFuture<Void> combinedFuture
-//                = CompletableFuture.allOf(future1, future2, future3);
+//        // allOf
+//        CompletableFuture<Void> allCfs = CompletableFuture.allOf(future1, future2, future3);
 //
-//        try {
-//            combinedFuture.get();
-//            System.out.println(future1.isDone());
-//            System.out.println(future2.isDone());
-//            System.out.println(future3.isDone());
-//            System.out.println(future1.join() + " " + future2.join() + " " + future3.join());
-//        } catch (InterruptedException | ExecutionException e) {
-//            e.printStackTrace();
-//        }
-
-
-        // 4.2.2 to keep results in a variable
+//        allCfs.get();
+//        System.out.println(future1.isDone());
+//        System.out.println(future2.isDone());
+//        System.out.println(future3.isDone());
+//        System.out.println(future1.get() + " " + future2.get() + " " + future3.get());
+//
+//        // 4.2.2 to keep results in a variable
 //        String combined = Stream.of(future1, future2, future3)
 //                .map(CompletableFuture::join)
-//                .collect(Collectors.joining(" "));
+//                .collect(Collectors.joining(" . "));
+//
 //        System.out.println("COMBINED: " + combined);
 
 
 
         // 5. Future
-//        try {
-//            Future<String> futureString = MyCompletableFuture.numberAsync(); // static method
-//            String stringResult = futureString.get();
-//            System.out.println("RESULT: " + stringResult);
+//        Future<String> futureString = MyCompletableFuture.numberAsync(); // static method
+//        String stringResult = futureString.get();
+//        System.out.println("RESULT: " + stringResult);
 //
-//            Future<Integer> futureInteger = MyCompletableFuture.integerAsync();
-//            Integer intResult = futureInteger.get();
-//            System.out.println("INT RESULT: " + intResult);
-//
-//        } catch (InterruptedException | ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//        Future<Integer> futureInteger = MyCompletableFuture.integerAsync();
+//        Integer intResult = futureInteger.get();
+//        System.out.println("INT RESULT: " + intResult);
 
 
 
@@ -190,14 +175,15 @@ public class MyCompletableFuture {
 //
 //        // thenApply (return value)
 //        CompletableFuture<Integer> additionResult = firstNum.thenApply((num) -> num + 15);
-//        System.out.println("RESULT(thenApply): " + additionResult.join() + " (with returned value)");
+//        // use .get() to show returned value
+//        System.out.println("RESULT(thenApply): " + additionResult.get() + " (with returned value)");
 //
 //        // thenAccept (Void)
 //        CompletableFuture<Void> additionResultVoid = firstNum.thenAccept((num) -> {
 //            System.out.println("RESULT(thenAccept): " + (num + 15));
 //        });
 //
-//        // thenRun (does not need return value or sout)
+//        // thenRun (does not return value or sout)
 //        CompletableFuture<Void> additionResultThenRun = firstNum.thenRun(() -> {
 //            System.out.println("RESULT(thenRun): COMPLETE !");
 //        });
@@ -207,24 +193,29 @@ public class MyCompletableFuture {
         // 7. thenCompose (num1 -> future2 -> num1 + num2)
 //        CompletableFuture<Integer> thenComposeFuture = CompletableFuture.supplyAsync(() -> 10) // future1
 //                .thenCompose(num -> CompletableFuture.supplyAsync(() -> (num + 1))); // future2 and  // num1 + num2
-//        System.out.println("thenCompose: " + thenComposeFuture.join());
+//        System.out.println("thenCompose: " + thenComposeFuture.get());
 
 
 
         // 8. thenCombine (future1 -> future2 -> num1 + num 2) // like combining of thenApply
-//        CompletableFuture<Integer> thenCombineFuture = CompletableFuture.supplyAsync(() -> 20) // future1
+//        CompletableFuture<Integer> thenCombineFutureTwo = CompletableFuture.supplyAsync(() -> 50);
+//
+//        CompletableFuture<Integer> thenCombineFutureOne = CompletableFuture.supplyAsync(() -> 20) // future1
 //                .thenCombine(
-//                        CompletableFuture.supplyAsync(() -> 10), // future2
+//                        thenCombineFutureTwo, // future2
 //                        (one, two) -> one + two // num1 + num2
 //                );
-//        System.out.println("thenCombine: " + thenCombineFuture.join());
+//
+//        System.out.println("thenCombine: " + thenCombineFutureOne.get());
 
 
 
         // 9. thenAcceptBoth // just like thenAccept (returned value to sout)
-//        CompletableFuture<Void> thenAcceptBothFuture = CompletableFuture.supplyAsync(() -> 100)
+//        CompletableFuture<Integer> thenAcceptBothFutureTwo = CompletableFuture.supplyAsync(() -> 200);
+//
+//        CompletableFuture<Void> thenAcceptBothFutureOne = CompletableFuture.supplyAsync(() -> 100)
 //                .thenAcceptBoth(
-//                        CompletableFuture.supplyAsync(() -> 300),
+//                        thenAcceptBothFutureTwo,
 //                        (one, two) -> {
 //                            System.out.println("thenAcceptBoth: " + (one + two));
 //                        }
@@ -232,21 +223,30 @@ public class MyCompletableFuture {
 
 
 
+
         // 10. thenApply vs thenCompose
+
 //        // 1: thenApply (with another value)
-//        CompletableFuture<Integer> thenApplyFinalResult = compute(222)
+//        CompletableFuture<Integer> intFutureOne = CompletableFuture.supplyAsync(() -> 222);
+//
+//        CompletableFuture<Integer> thenApplyFinalResult = intFutureOne
 //                .thenApply(num -> num + 111);
-//        System.out.println("FINAL RESULT(thenApply): " + thenApplyFinalResult.join());
+//
+//        System.out.println("FINAL RESULT(thenApply): " + thenApplyFinalResult.get());
+//
 //        // 2: thenCompose (with another method)
-//        CompletableFuture<Integer> thenComposeFinalResult = compute(111)
-//                .thenCompose(MyCompletableFuture::computeAnother);
-////                    .thenCompose(num -> CompletableFuture.supplyAsync(() -> (num + 1000)));
-//        System.out.println("FINAL RESULT(thenCompose): " + thenComposeFinalResult.join());
+//        CompletableFuture<Integer> firstIntFuture = CompletableFuture.supplyAsync(() -> 111);
+//
+//        CompletableFuture<Integer> thenComposeFinalResult = firstIntFuture
+//                .thenCompose(num -> CompletableFuture.supplyAsync(() -> (num + 1000)));
+////                .thenCompose(MyCompletableFuture::computeAnother);
+//
+//        System.out.println("FINAL RESULT(thenCompose): " + thenComposeFinalResult.get());
 
 
 
-        // 11 Handle Exceptions
-//        // 1:
+        // 11 Handle Exceptions ( .handle((result,throwable)) after .supplyAsync() )
+        // 1:
 //        CompletableFuture<String> errorFuture = CompletableFuture.supplyAsync(() -> {
 //            if (2 > 1) throw new RuntimeException("error test !");
 //            return "100";
@@ -256,7 +256,7 @@ public class MyCompletableFuture {
 //                    System.out.println("THROWABLE: " + throwable);
 //                    return result == "100" ? "SUCCESS" : "FAILED";
 //                });
-//        System.out.println("Error Future: " + errorFuture.join());
+//        System.out.println("Error Future: " + errorFuture.get());
 
         // 2:
 //        CompletableFuture<String> errorFutureTwo = CompletableFuture.supplyAsync(() -> "SUCCESS");
@@ -303,11 +303,9 @@ public class MyCompletableFuture {
 //                .whenCompleteAsync((result,throwable) -> {
 //                    System.out.println("COMPLETE.");
 //                });
-//        try {
-//            System.out.println("asyncFuture: " + asyncFuture.get());
-//        } catch (InterruptedException | ExecutionException e) {
-//            e.printStackTrace();
-//        }
+//
+//        System.out.println("asyncFuture: " + asyncFuture.get());
+
 
 
 
@@ -327,7 +325,7 @@ public class MyCompletableFuture {
 //            String jsonString = response.body();
 //            return jsonString;
 //        });
-//        System.out.println("HttpClientFuture: " + httpClientFuture.join());
+//        System.out.println("HttpClientFuture: " + httpClientFuture.get());
 
 
 
