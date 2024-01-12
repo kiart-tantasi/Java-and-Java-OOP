@@ -25,39 +25,39 @@ public class MyThread extends Thread {
     public static void main(String[] args) {
 
         // Thread
-//        MyThread myThread = new MyThread(1,7);
-//        MyThread myThreadTwo = new MyThread(2,8);
-//        myThread.start();
-//        myThread.join();
-//        System.out.println("\n");
-//        myThreadTwo.start();
-//        myThreadTwo.join();
-//        System.out.println("\n");
+        // MyThread myThread = new MyThread(1,7);
+        // MyThread myThreadTwo = new MyThread(2,8);
+        // myThread.start();
+        // myThread.join();
+        // System.out.println("\n");
+        // myThreadTwo.start();
+        // myThreadTwo.join();
+        // System.out.println("\n");
 
         // new Thread(myThread)
-//        Thread threadTest = new Thread(myThread);
-//        threadTest.start();
-//        threadTest.join();
+        // Thread threadTest = new Thread(myThread);
+        // threadTest.start();
+        // threadTest.join();
 
-        MyThread threadOne = new MyThread(1,4);
-        MyThread threadTwo = new MyThread(2,3);
+        MyThread threadOne = new MyThread(1, 4);
+        MyThread threadTwo = new MyThread(2, 3);
 
         // THREAD 1
         threadOne.start();
-//        while (threadToFive.isAlive()) { }
+        // while (threadToFive.isAlive()) { }
         try {
             threadOne.join();
-        } catch(InterruptedException ex) {
+        } catch (InterruptedException ex) {
             System.out.println(ex);
         }
         System.out.println("FIRST THREAD DONE\n");
 
         // THREAD 2
         threadTwo.start();
-//        while (threadToThree.isAlive()) { }
+        // while (threadToThree.isAlive()) { }
         try {
             threadTwo.join();
-        } catch(InterruptedException ex) {
+        } catch (InterruptedException ex) {
             System.out.println(ex);
         }
         System.out.println("SECOND THREAD DONE");

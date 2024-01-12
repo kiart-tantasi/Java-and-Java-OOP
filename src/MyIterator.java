@@ -13,9 +13,9 @@ public class MyIterator {
         Iterator<String> myIterator = animalArray.iterator();
 
         // Looping
-//        while (myIterator.hasNext()) {
-//            System.out.println(myIterator.next());
-//        }
+        // while (myIterator.hasNext()) {
+        // System.out.println(myIterator.next());
+        // }
 
         System.out.println("\nBefore remove 'Cat': " + animalArray);
 

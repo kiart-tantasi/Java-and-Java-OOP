@@ -47,7 +47,8 @@ public class MyLambda {
         System.out.println("\n");
 
         // 3
-        PrintableTakesString printableTakesString = (str) -> System.out.println(str + ": I am taking a string parameter.");
+        PrintableTakesString printableTakesString = (str) -> System.out
+                .println(str + ": I am taking a string parameter.");
         doLambdaWithParam(printableTakesString);
 
         System.out.println("\n");
@@ -56,7 +57,6 @@ public class MyLambda {
         StringReturnable stringReturnable = (String string) -> string;
         String strReturned = lambdaToReturnString(stringReturnable);
         System.out.println(strReturned);
-
 
     }
 

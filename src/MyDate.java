@@ -31,7 +31,7 @@ public class MyDate {
         // yyyy-MM-dd
         // dd/MM/yyyy
         // dd-MMM-yyy - "29-Sep-1988"
-        //E, MMM dd yyy - "Thu, Sep 29 1988"
+        // E, MMM dd yyy - "Thu, Sep 29 1988"
 
     }
 }

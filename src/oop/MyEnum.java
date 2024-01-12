@@ -14,7 +14,7 @@ public class MyEnum {
     }
 
     public static void main(String[] args) {
-        for (DemoEnum demoEnum: DemoEnum.values()) {
+        for (DemoEnum demoEnum : DemoEnum.values()) {
             System.out.println("Looping: " + demoEnum + " - " + demoEnum.number);
         }
 

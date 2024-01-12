@@ -1,7 +1,7 @@
 public class MySwitchStatement {
 
     public void getSwitch(int num) {
-        switch(num) {
+        switch (num) {
             case 0:
                 System.out.println("This is 0.");
                 break;

@@ -19,7 +19,7 @@ public class MyHashSet {
         System.out.println("\n");
 
         // for loop
-        for (String str: nameHashSet) {
+        for (String str : nameHashSet) {
             System.out.println("For Each Loop: " + str);
         }
 

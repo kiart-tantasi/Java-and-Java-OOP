@@ -39,6 +39,7 @@ class Rabbit {
     public boolean equals(Object object) {
         if (object instanceof Rabbit) {
             return true;
-        } else return false;
+        } else
+            return false;
     }
 }

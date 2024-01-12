@@ -46,10 +46,10 @@ public class MyRegEx {
 
 // from W3Schools
 
-//Pattern.LITERAL - Special characters in the pattern will not have any special meaning and will be treated as ordinary characters when performing a search.
-//Pattern.UNICODE_CASE - Use it together with the CASE_INSENSITIVE flag to also ignore the case of letters outside of the English alphabet
-
+// Pattern.LITERAL - Special characters in the pattern will not have any special
+// meaning and will be treated as ordinary characters when performing a search.
+// Pattern.UNICODE_CASE - Use it together with the CASE_INSENSITIVE flag to also
+// ignore the case of letters outside of the English alphabet
 
 // ------------ !!! LEARN MORE !!! ------------ //
 // https://www.w3schools.com/java/java_regex.asp
-

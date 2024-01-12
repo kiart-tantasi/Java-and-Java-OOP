@@ -23,6 +23,7 @@ public class Polymorphism {
             public Dog(String name) {
                 super(name);
             }
+
             public void makeSound() {
                 System.out.println(this.name + ": Bowww...");
             }
@@ -33,6 +34,7 @@ public class Polymorphism {
             public Cat(String name) {
                 super(name);
             }
+
             public void makeSound() {
                 System.out.println(this.name + ": Meawww...");
             }
@@ -45,8 +47,8 @@ public class Polymorphism {
         cat.makeSound();
 
         // cannot create new Animal() object because keyword "abstract"
-//        Animal animal = new Animal("IAMANIMAL");
-//        animal.makeSound();
+        // Animal animal = new Animal("IAMANIMAL");
+        // animal.makeSound();
 
     }
 

@@ -3,7 +3,6 @@ package oop;
 public class OuterInnerClass {
     public static void main(String[] args) {
 
-
         class OuterClass {
             private String sayHi = "Hi !";
 

@@ -22,13 +22,13 @@ public class MyRunnableThread implements Runnable {
         MyRunnableThread runnableThreadTwo = new MyRunnableThread(3);
         Thread threadOne = new Thread(runnableThread);
         Thread threadTwo = new Thread(runnableThreadTwo);
-//        thread.start();
-//        threadTwo.start();
+        // thread.start();
+        // threadTwo.start();
 
         System.out.println("Run one thread by one time\n");
 
         threadOne.start();
-//        while (thread.isAlive()) {}
+        // while (thread.isAlive()) {}
         try {
             threadOne.join();
         } catch (InterruptedException ex) {
@@ -37,7 +37,7 @@ public class MyRunnableThread implements Runnable {
         System.out.println("thread one is done.\n");
 
         threadTwo.start();
-//        while (threadTwo.isAlive()) {}
+        // while (threadTwo.isAlive()) {}
         try {
             threadTwo.join();
         } catch (InterruptedException ex) {

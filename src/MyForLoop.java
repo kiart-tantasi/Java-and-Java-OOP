@@ -7,15 +7,15 @@ public class MyForLoop {
             System.out.println("For Loop: " + numArray[i]);
         }
 
-         // for each loop
-        for (int num: numArray) {
+        // for each loop
+        for (int num : numArray) {
             System.out.println("For Each Loop: " + num);
         }
 
-        //MultiDimensional Array + Double Loop (Big O of (N * M))
-        for (int[] arr: MyArray.multiNumArray) {
+        // MultiDimensional Array + Double Loop (Big O of (N * M))
+        for (int[] arr : MyArray.multiNumArray) {
             System.out.println("one dimensional array:" + arr);
-            for (int num: arr) {
+            for (int num : arr) {
                 System.out.println("NUMBER:" + num);
             }
         }
