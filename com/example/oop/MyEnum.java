@@ -1,24 +1,29 @@
 package com.example.oop;
 
-public class MyEnum {
-    enum DemoEnum {
-        FIRST(1),
-        SECOND(2),
-        THIRD(3);
-
-        private int number;
-
-        private DemoEnum(int number) {
-            this.number = number;
-        }
+enum SomeEnum {
+    FIRST(1),
+    SECOND(2),
+    THIRD(3);
+    public int number;
+    // contructor for enum (cannot be `public`)
+    // will get error if removed
+    private SomeEnum(int number) {
+        this.number = number;
     }
+}
 
+public class MyEnum {
     public static void main(String[] args) {
-        for (DemoEnum demoEnum : DemoEnum.values()) {
-            System.out.println("Looping: " + demoEnum + " - " + demoEnum.number);
+        // get all values in enum
+        for (final SomeEnum enu : SomeEnum.values()) {
+            System.out.println(enu + " - " + enu.number);
         }
 
-        DemoEnum one = DemoEnum.FIRST;
-        System.out.println("\n" + one + " " + one.number);
+        // new line
+        System.out.println("\n");
+
+        // declare enum var
+        final SomeEnum someEnum = SomeEnum.FIRST;
+        System.out.println(someEnum + " " + someEnum.number);
     }
 }
