@@ -1,3 +1,5 @@
+package com.example.oop;
+
 // package oop;
 //
 // public class TryInherit extends CannotInherit {

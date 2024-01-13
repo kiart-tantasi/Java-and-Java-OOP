@@ -1,6 +1,6 @@
-import java.nio.charset.StandardCharsets;
+package com.example;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MyString {
     public static void main(String[] args) {

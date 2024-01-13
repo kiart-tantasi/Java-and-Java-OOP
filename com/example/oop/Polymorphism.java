@@ -1,6 +1,4 @@
-package oop;
-
-import oop.Animal;
+package com.example.oop;
 
 public class Polymorphism {
     public static void main(String[] args) {

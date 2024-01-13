@@ -1,3 +1,5 @@
+package com.example;
+
 public class MyEquals {
 
     public static void main(String[] args) {

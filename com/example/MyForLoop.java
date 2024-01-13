@@ -1,3 +1,5 @@
+package com.example;
+
 public class MyForLoop {
     public static void main(String[] args) {
         int[] numArray = MyArray.getNumArray();

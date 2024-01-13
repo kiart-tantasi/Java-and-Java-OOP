@@ -1,3 +1,5 @@
+package com.example;
+
 public class MyArray {
 
     public static int[] numArray = { 1, 2, 3, 4, 99, 5 };

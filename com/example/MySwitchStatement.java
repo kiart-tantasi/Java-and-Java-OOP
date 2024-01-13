@@ -1,3 +1,5 @@
+package com.example;
+
 public class MySwitchStatement {
 
     public void getSwitch(int num) {

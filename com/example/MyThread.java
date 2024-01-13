@@ -1,3 +1,5 @@
+package com.example;
+
 public class MyThread extends Thread {
 
     public Integer threadNumber;

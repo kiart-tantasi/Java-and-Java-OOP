@@ -1,4 +1,4 @@
-package oop;
+package com.example.oop;
 
 public class SuperClassSubClass {
     public static void main(String[] args) {

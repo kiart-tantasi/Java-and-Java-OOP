@@ -1,4 +1,4 @@
-package oop;
+package com.example.oop;
 
 public class OuterInnerClass {
     public static void main(String[] args) {
