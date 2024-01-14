@@ -1,4 +1,4 @@
-package com.example.oop.finalclass;
+package com.example.oop.finalandpublic;
 
 public class App {
     public static void main(String[] args) {
