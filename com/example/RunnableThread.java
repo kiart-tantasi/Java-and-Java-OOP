@@ -1,10 +1,10 @@
 package com.example;
 
-public class MyRunnableThread implements Runnable {
+public class RunnableThread implements Runnable {
 
     public Integer rounds;
 
-    public MyRunnableThread(Integer rounds) {
+    public RunnableThread(Integer rounds) {
         this.rounds = rounds;
     }
 
@@ -20,8 +20,8 @@ public class MyRunnableThread implements Runnable {
     }
 
     public static void main(String[] args) {
-        MyRunnableThread runnableThread = new MyRunnableThread(5);
-        MyRunnableThread runnableThreadTwo = new MyRunnableThread(3);
+        RunnableThread runnableThread = new RunnableThread(5);
+        RunnableThread runnableThreadTwo = new RunnableThread(3);
         Thread threadOne = new Thread(runnableThread);
         Thread threadTwo = new Thread(runnableThreadTwo);
         // thread.start();

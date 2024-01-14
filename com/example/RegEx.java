@@ -3,7 +3,7 @@ package com.example;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MyRegEx {
+public class RegEx {
     public static void main(String[] args) {
         String sentence = "I Love CaT So Much !";
 

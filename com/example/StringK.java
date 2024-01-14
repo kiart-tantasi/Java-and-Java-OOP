@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 
-public class MyString {
+public class StringK {
     public static void main(String[] args) {
         String str = "abc";
 

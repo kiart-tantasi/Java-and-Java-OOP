@@ -1,6 +1,6 @@
 package com.example;
 
-public class MyTryCatch {
+public class TryCatch {
     public static void main(String[] args) {
 
         int age = 15; // try 15 25 35

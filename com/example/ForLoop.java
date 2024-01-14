@@ -1,8 +1,8 @@
 package com.example;
 
-public class MyForLoop {
+public class ForLoop {
     public static void main(String[] args) {
-        int[] numArray = MyArray.getNumArray();
+        int[] numArray = Array.getNumArray();
 
         // for loop
         for (int i = 0; i < numArray.length; i++) {
@@ -15,7 +15,7 @@ public class MyForLoop {
         }
 
         // MultiDimensional Array + Double Loop (Big O of (N * M))
-        for (int[] arr : MyArray.multiNumArray) {
+        for (int[] arr : Array.multiNumArray) {
             System.out.println("one dimensional array:" + arr);
             for (int num : arr) {
                 System.out.println("NUMBER:" + num);

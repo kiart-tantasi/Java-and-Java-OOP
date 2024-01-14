@@ -1,6 +1,6 @@
 package com.example;
 
-public class MySwitchStatement {
+public class SwitchStatement {
 
     public void getSwitch(int num) {
         switch (num) {
@@ -22,7 +22,7 @@ public class MySwitchStatement {
 
     public static void main(String[] args) {
         // Switch
-        MySwitchStatement switcher = new MySwitchStatement();
+        SwitchStatement switcher = new SwitchStatement();
         switcher.getSwitch(1);
     }
 

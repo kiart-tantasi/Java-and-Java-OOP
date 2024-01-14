@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.LinkedList;
 
-public class MyLinkedList {
+public class LinkedListK {
 
     public static void main(String[] args) {
 

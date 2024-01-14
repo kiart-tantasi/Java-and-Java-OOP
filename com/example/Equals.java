@@ -1,6 +1,6 @@
 package com.example;
 
-public class MyEquals {
+public class Equals {
 
     public static void main(String[] args) {
 
