@@ -1,0 +1,1 @@
+- In some class, I put "K" in the end to avoid using restricted keywords

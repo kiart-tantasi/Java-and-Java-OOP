@@ -1,6 +1,6 @@
-package com.example.oop;
+package com.example.oop.finalandpublic;
 
-final class CannotExtendsFinalClass {
+final class FinalClass {
     public void saySomething() {
         System.out.println("hello world !");
     }
