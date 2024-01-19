@@ -4,95 +4,62 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public class Lambda {
-    public static void main(String[] args) {
+    // just a helper to run lambda
+    private final static String runLambdaSomewhereElse(SomeFnInterface fn, String fnParam) {
+        return fn.run(fnParam);
+    }
 
-        ArrayList<String> animalArrayList = new ArrayList<>();
+    // create a method that takes in a lambda
+    private final static void runLambda(Consumer<String> consumer) {
+        consumer.accept(null);
+    }
+
+    public static void main(String[] args) {
+        final ArrayList<String> animalArrayList = new ArrayList<>();
         animalArrayList.add("Dog");
         animalArrayList.add("Cat");
         animalArrayList.add("Pig");
 
-        // Lambda with forEach
-        animalArrayList.forEach(x -> System.out.println(".forEach(): " + x));
-
-        System.out.println("\n");
-
-        // Lambda with forEach
+        // lambda expression
+        // regular one
         animalArrayList.forEach(x -> {
-            System.out.println(".forEach() 2: " + x);
+            System.out.println(x);
         });
+        // method reference or shorthand lambda expression
+        animalArrayList.forEach(System.out::println);
 
-        System.out.println("\n");
-
-        // insert method into forEach
-        Consumer<String> consumerLambdaMethod = x -> System.out.println(".forEach() 3: " + x);
-        animalArrayList.forEach(consumerLambdaMethod);
-
-        System.out.println("\n");
+        // assign lambda to a variable
+        final Consumer<String> lambda = ((x) -> {
+            System.out.println(x);
+        });
+        animalArrayList.forEach(lambda);
 
         // insert method into interface's method
-        MyFunction sayHi = name -> "Hi ! " + name;
-        String hiDavid = sayHi.runFunction("David.");
-        System.out.println(hiDavid);
+        final SomeFnInterface fn = ((param) -> {
+            return param;
+        });
 
-        System.out.println("\n");
+        // run a method that takes lambda as expression
+        runLambda((param) -> {
+            System.out.println("running lambda");
+        });
 
-        // ----- Lambda Techniques ----- //
-        // 1
-        doLambda(() -> System.out.println("What's up !"));
+        // [@FunctionInterface]
+        // 1. use fn.run() directly
+        System.out.println(fn.run("David 1"));
+        // 2. create a method to run that lambda
+        System.out.println(runLambdaSomewhereElse(fn, "David 2"));
 
-        System.out.println("\n");
-
-        // 2
-        Printable printMethod = () -> System.out.println("Printing Something");
-        doLambda(printMethod);
-
-        System.out.println("\n");
-
-        // 3
-        PrintableTakesString printableTakesString = (str) -> System.out
-                .println(str + ": I am taking a string parameter.");
-        doLambdaWithParam(printableTakesString);
-
-        System.out.println("\n");
-
-        // 4 (Last Example)
-        StringReturnable stringReturnable = (String string) -> string;
-        String strReturned = lambdaToReturnString(stringReturnable);
-        System.out.println(strReturned);
-
-    }
-
-    static void doLambda(Printable sout) { // got to implement interface
-        sout.print();
-    }
-
-    static void doLambdaWithParam(PrintableTakesString sout) { // got to implement interface
-        sout.printWithString("Anna");
-    }
-
-    static String lambdaToReturnString(StringReturnable fn) {
-        return fn.returnString("This is string returned.");
+        // lambda can take no param at all with interface Consumer<Void>
+        // final Consumer<Void> consumerNoParam = ((v) -> {
+        // System.out.println("do something without param, v is " + v); // v is always
+        // null
+        // });
     }
 }
 
-// interfaces to implement
-
+// interfaces to implement () kind of the same to Consumer
 @FunctionalInterface
-interface MyFunction {
-    String runFunction(String name);
-}
-
-@FunctionalInterface
-interface Printable {
-    void print();
-}
-
-@FunctionalInterface
-interface PrintableTakesString {
-    void printWithString(String str);
-}
-
-@FunctionalInterface
-interface StringReturnable {
-    String returnString(String str);
+interface SomeFnInterface {
+    String run(String name);
 }
