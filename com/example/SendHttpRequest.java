@@ -15,7 +15,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.util.concurrent.ExecutionException;
 
 public class SendHttpRequest {
-    private static final String MOCK_URI = "https://lol.petchblog.net/api/v1/matches?gameName=%E0%B9%80%E0%B8%9E%E0%B8%8A%E0%B8%A3&tagLine=ARAM";
+    private static final String MOCK_URI = "https://example.com";
 
     public static void main(String[] args)
             throws MalformedURLException, IOException, URISyntaxException, InterruptedException, ExecutionException {
@@ -23,8 +23,10 @@ public class SendHttpRequest {
         sendRequestURLConnection();
         System.out.println("=========== MODERN ===========");
         sendRequetHttpClient();
-        System.out.println("=========== ASYNC ===========");
+        System.out.println("=========== ASYNC (ThenApply) ===========");
         sendRequetHttpClientAsyncThenApply();
+        System.out.println("=========== ASYNC (ThenAccept) ===========");
+        sendRequetHttpClientAsyncThenAccept();
     }
 
     public static void sendRequestURLConnection() throws MalformedURLException, IOException {
@@ -34,7 +36,7 @@ public class SendHttpRequest {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String lineBuffer;
         while ((lineBuffer = bufferedReader.readLine()) != null) {
-            System.out.println("response:\n" + lineBuffer);
+            System.out.println("LINE: " + lineBuffer);
         }
 
     }
@@ -43,14 +45,26 @@ public class SendHttpRequest {
         HttpRequest request = HttpRequest.newBuilder().uri(new URI(MOCK_URI)).build();
         HttpClient client = HttpClient.newBuilder().build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        System.out.println("response:\n" + response.body());
+        System.out.println("status: " + response.statusCode());
     }
+
+    // this is not a good file to demo `Then...()` but let put it here first
 
     public static void sendRequetHttpClientAsyncThenApply()
             throws URISyntaxException, IOException, InterruptedException, ExecutionException {
         HttpRequest request = HttpRequest.newBuilder().uri(new URI(MOCK_URI)).build();
         HttpClient client = HttpClient.newBuilder().build();
-        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).get();
-        System.out.println("response(sendAsync):\n" + response);
+        String statusCode = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::statusCode).get()
+                .toString();
+        System.out.println("response status:" + statusCode);
+    }
+
+    public static void sendRequetHttpClientAsyncThenAccept()
+            throws URISyntaxException, IOException, InterruptedException, ExecutionException {
+        HttpRequest request = HttpRequest.newBuilder().uri(new URI(MOCK_URI)).build();
+        HttpClient client = HttpClient.newBuilder().build();
+        client.sendAsync(request, BodyHandlers.ofString()).thenAccept(res -> {
+            System.out.println("response status:" + res.statusCode());
+        }).get();
     }
 }
