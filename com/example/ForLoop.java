@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.collection.Array;
+
 public class ForLoop {
     public static void main(String[] args) {
         int[] numArray = Array.getNumArray();

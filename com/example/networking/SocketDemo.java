@@ -1,4 +1,4 @@
-package com.example.socket;
+package com.example.networking;
 
 import java.io.PrintWriter;
 import java.io.BufferedReader;
