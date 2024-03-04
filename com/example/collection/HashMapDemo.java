@@ -2,7 +2,7 @@ package com.example.collection;
 
 import java.util.HashMap;
 
-public class HashMapK {
+public class HashMapDemo {
     public static void main(String[] args) {
 
         HashMap<String, Person> personHashMap = new HashMap<>();

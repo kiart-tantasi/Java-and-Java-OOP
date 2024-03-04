@@ -1,6 +1,6 @@
 package com.example;
 
-public class MathK {
+public class MathDemo {
     public static void main(String[] args) {
 
         int[] numArray = { 45, 99, 59, 2, 30 };

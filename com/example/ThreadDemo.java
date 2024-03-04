@@ -1,11 +1,11 @@
 package com.example;
 
-public class ThreadK extends Thread {
+public class ThreadDemo extends Thread {
 
     public Integer threadNumber;
     public Integer rounds;
 
-    public ThreadK(Integer threadNumber, Integer rounds) {
+    public ThreadDemo(Integer threadNumber, Integer rounds) {
         this.threadNumber = threadNumber;
         this.rounds = rounds;
     }
@@ -41,8 +41,8 @@ public class ThreadK extends Thread {
         // threadTest.start();
         // threadTest.join();
 
-        ThreadK threadOne = new ThreadK(1, 4);
-        ThreadK threadTwo = new ThreadK(2, 3);
+        ThreadDemo threadOne = new ThreadDemo(1, 4);
+        ThreadDemo threadTwo = new ThreadDemo(2, 3);
 
         // THREAD 1
         threadOne.start();

@@ -3,7 +3,7 @@ package com.example.collection;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class IteratorK {
+public class IteratorDemo {
     public static void main(String[] args) {
 
         ArrayList<String> animalArray = new ArrayList<>();

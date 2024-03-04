@@ -2,7 +2,7 @@ package com.example.collection;
 
 import java.util.HashSet;
 
-public class HashSetK {
+public class HashSetDemo {
     public static void main(String[] args) {
 
         HashSet<String> nameHashSet = new HashSet<>();

@@ -3,7 +3,7 @@ package com.example.collection;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ArrayListK {
+public class ArrayListDemo {
     public static void main(String[] args) {
 
         ArrayList<String> stringArrayList = new ArrayList<>();
