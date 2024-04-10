@@ -1,1 +1,1 @@
-- In some class, I put "K" in the end to avoid using restricted keywords
+It will always be a long journey, learning a programming language.
