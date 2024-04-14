@@ -1,11 +1,11 @@
 package com.example;
 
-public class CloneDemo implements Cloneable {
+public class CloneableDemo implements Cloneable {
 
     private String value;
     private final SubClass subClass;
 
-    public CloneDemo(String value, SubClass subClass) throws CloneNotSupportedException {
+    public CloneableDemo(String value, SubClass subClass) throws CloneNotSupportedException {
         this.value = value;
         this.subClass = subClass;
         // this.subClass = (SubClass) subClass.clone(); // to clone subClass
@@ -25,7 +25,7 @@ public class CloneDemo implements Cloneable {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         var subClass = new SubClass("initial value");
-        var firstObj = new CloneDemo("initial value", subClass);
+        var firstObj = new CloneableDemo("initial value", subClass);
         var secondObj = firstObj.clone();
 
         // set value
@@ -33,7 +33,7 @@ public class CloneDemo implements Cloneable {
         // firstObj
         System.out.println("first.getValue() - " + firstObj.getValue());
         // secondObj
-        System.out.println("secondObj.getValue() - " + ((CloneDemo) secondObj).getValue());
+        System.out.println("secondObj.getValue() - " + ((CloneableDemo) secondObj).getValue());
 
         System.out.println("===============================================================");
 
@@ -43,7 +43,7 @@ public class CloneDemo implements Cloneable {
         System.out.println("firstObj.getSubClass().getSubValue() - " + firstObj.getSubClass().getSubValue());
         // secondObj
         System.out.println(
-                "secondObj.getSubClass().getSubValue() - " + ((CloneDemo) secondObj).getSubClass().getSubValue());
+                "secondObj.getSubClass().getSubValue() - " + ((CloneableDemo) secondObj).getSubClass().getSubValue());
 
     }
 
