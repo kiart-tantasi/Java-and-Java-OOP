@@ -33,22 +33,22 @@ public class SerializableDemo implements Serializable {
 
         // serialize
         try {
-            FileOutputStream fileOut = new FileOutputStream(fileName);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(toSerialize);
-            out.close();
-            fileOut.close();
+            FileOutputStream fos = new FileOutputStream(fileName);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(toSerialize);
+            oos.close();
+            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // deserialize
         try {
-            FileInputStream fileIn = new FileInputStream(fileName);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            SerializableDemo serializableDemo = (SerializableDemo) in.readObject();
-            in.close();
-            fileIn.close();
+            FileInputStream fis = new FileInputStream(fileName);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            SerializableDemo serializableDemo = (SerializableDemo) ois.readObject();
+            ois.close();
+            fis.close();
 
             // result
             System.out.println("=====[DESERIALIZED]=====");
@@ -63,10 +63,10 @@ public class SerializableDemo implements Serializable {
         try {
             // serialize
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutputStream os = new ObjectOutputStream(bos);
-            os.writeObject(toSerialize);
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(toSerialize);
             String str = Base64.getEncoder().encodeToString(bos.toByteArray());
-            os.close();
+            oos.close();
 
             // deserialize
             byte[] bytes = Base64.getDecoder().decode(str);
