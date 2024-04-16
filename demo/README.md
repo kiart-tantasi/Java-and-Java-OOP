@@ -1,25 +1,18 @@
 Steps to compile to jar file
 
 1. Compile .java to .class
-
-At project root
-
-```
-javac demo/packaging/App.java
-```
+    ```
+    javac demo/packaging/App.java
+    ```
 
 2. Package .class files into .jar file
-
-At project root
-
-```
-jar cfmv app.jar demo/manifest.txt demo/packaging/*
-```
+    ```
+    jar cfmv app.jar demo/manifest.txt demo/packaging/*
+    ```
 
 3. Run app
+    ```
+    java -jar app.jar HelloWorld
+    ```
 
-At root project
-
-```
-java -jar app.jar HelloWorld
-```
+NOTE: run these commands at project root for correct classpath
