@@ -2,12 +2,12 @@ Steps to compile to jar file
 
 1. Compile .java to .class
     ```
-    javac demo/packaging/App.java
+    javac demopackaging/packaging/App.java
     ```
 
 2. Package .class files into .jar file
     ```
-    jar cfmv app.jar demo/manifest.txt demo/packaging/*
+    jar cfmv app.jar demopackaging/manifest.txt demopackaging/packaging/*
     ```
 
 3. Run app

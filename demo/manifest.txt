@@ -1,2 +1,0 @@
-anifest-Version: 1.0
-Main-Class: demo.packaging.App

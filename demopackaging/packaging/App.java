@@ -1,6 +1,6 @@
-package demo.packaging;
+package demopackaging.packaging;
 
-import demo.packaging.utils.ArgsLogger;
+import demopackaging.packaging.utils.ArgsLogger;
 
 // to package: `javac demo/packaging/App.java`
 public class App {

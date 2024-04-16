@@ -1,4 +1,4 @@
-package demo.packaging.utils;
+package demopackaging.packaging.utils;
 
 public class ArgsLogger {
     public static void logArgs(String[] args) {
